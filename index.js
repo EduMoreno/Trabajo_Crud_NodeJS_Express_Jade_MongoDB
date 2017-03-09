@@ -53,32 +53,14 @@ app.post('/alta', function (req, res) {
 //Modificar
 app.post('/modificar', function (req, res) {
    datos = {};
-
-   if(req.body.pais == "undefined"){
-     pais = "";
-   }else{
-     pais = req.body.pais;
-   }
-
-   if(req.body.apellido == "undefined"){
-     apellido = "";
-   }else{
-     apellido = req.body.apellido;
-   }
-
-   if(req.body.nombre == "undefined"){
-     nombre = "";
-   }else{
-     nombre = req.body.nombre;
-   }
-   
+  
 
    let usuario = {
       _id : req.body._id,
-      nombre: nombre,
-      apellido: apellido,
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
       edad: req.body.edad,
-      pais: pais
+      pais: req.body.pais
    };
 
    datos.usuario = usuario;
