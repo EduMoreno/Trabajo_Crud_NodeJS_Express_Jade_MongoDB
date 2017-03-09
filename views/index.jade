@@ -1,0 +1,25 @@
+extends layout
+block contenido
+  div
+    h1(style="text-align:center; font-family:Comic Sans; background:#F3F781; border-radius:10px;") Gestión de usuarios
+      div(class="input-field")
+    a(href="/formulario", class="btn-floating btn-large waves-effect waves-light green" style="margin-bottom:2%") #[i(class="material-icons") add] 
+    table(class="bordered centered" )
+      tr(style="background:black; color:white; font-size:15px; ") 
+        td Nombre
+        td Apellido
+        td Edad
+        td País
+        td(colspan="2") Botones
+      
+      for u in usuarios
+        tr(style="background:white;") 
+          td #{u.nombre}
+          td #{u.apellido}
+          td #{u.edad}
+          td #{u.pais}
+          td. 
+            #[form(action="modificar" method="POST") #[input(type="hidden" name="_id" value="#{u._id}" )] #[input(type="hidden" name="nombre" value="#{u.nombre}" )] #[input(type="hidden" name="apellido" value="#{u.apellido}" )] #[input(type="hidden" name="edad" value="#{u.edad}" )] #[input(type="hidden" name="pais" value="#{u.pais}" )] #[button(type="submit", class="btn-floating btn-large waves-effect waves-light yellow" style="width:50px; height=50px") #[i(class="material-icons") mode_edit]]]
+          td.
+            #[form(action="borrar" method="POST") #[input(type="hidden" name="_id" value="#{u._id}" )] #[button(type="submit", class="btn-floating btn-large waves-effect waves-light red" style="width:50px; height=50px") #[i(class="material-icons") delete]]]
+

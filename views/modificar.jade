@@ -1,0 +1,21 @@
+extends layout
+block contenido
+ h1(style="text-align:center; font-family:Comic Sans; background:#F3F781; border-radius:10px;") Editar usuario
+ 
+ div(class="container" style="background:white; border-radius:10px 10px 0px 0px ;width:100%")
+    form(action="modificar2" method="post")
+      div(class="input-field" style="margin-left:2%" )
+        input(type="hidden" name="_id" id="_id" value="#{usuario._id}")
+        input(type="text" name="nombre" id="nombre" autofocus="true" value="#{usuario.nombre}" required)
+        
+      div(class="input-field" style=" margin:2%")
+        input(type="text" name="apellido" id="apellido" value="#{usuario.apellido}" required)
+
+      div(class="input-field" style=" margin:2%")
+        input(type="number" min="0" name="edad" id="edad" value="#{usuario.edad}" )
+
+      div(class="input-field" style=" margin:2%")
+        input(type="text" name="pais" id="pais" value="#{usuario.pais}" )
+      input(type="submit" value="Aceptar" style="margin-left:2%")
+      input(type="button"  onclick=" location.href='http://localhost:8080' " value="Cancelar" style="margin-left:2%")
+
